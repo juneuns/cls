@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	$('.brow').click(function(){
 		var sno = $(this).attr('id');
-		alert(sno);
+		$('#bno').val(sno);
+		$('#bfrm').attr('action', '/cls/board/boardDetail.cls');
+		$('#bfrm').submit();
 	});
 	
 	$('.pagebtn').click(function(){
@@ -48,6 +50,7 @@ $(document).ready(function(){
 		// 이곳을 실행하는 경우는 모든 입력태그에(파일태그제외) 데이터가 입력된 경우..
 		$('#wfrm').submit();
 	});
+	
 });
 
 

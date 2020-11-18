@@ -17,7 +17,7 @@
 <body>
 	<form method="POST" action="" id="bfrm">
 		<input type="hidden" name="bno" id="bno">
-		<input type="hidden" name="nowPage" id="nowPage">
+		<input type="hidden" name="nowPage" id="nowPage" value="${nowPage}">
 	</form>
 
 	<div class="w3-content mw800">

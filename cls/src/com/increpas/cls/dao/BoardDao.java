@@ -207,6 +207,10 @@ public class BoardDao {
 			bVO.setList(list);
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
 		}
 		
 		return bVO;

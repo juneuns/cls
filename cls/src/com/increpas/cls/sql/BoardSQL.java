@@ -63,11 +63,12 @@ public class BoardSQL {
 			break;
 		case SEL_BOARD_DETAIL:
 			buff.append("SELECT ");
-			buff.append("	bno, id, title, body, click, bdate, fno, oriname, savename ");
+			buff.append("	bno, id, title, body, bclick click, bdate, fno, oriname, savename ");
 			buff.append("FROM ");
-			buff.append("	board, fileinfo ");
+			buff.append("	board, member, fileinfo ");
 			buff.append("WHERE ");
 			buff.append("	bisshow = 'Y' ");
+			buff.append("	AND bmno = mno ");
 			buff.append("	AND bno = fbno(+) ");
 			buff.append("	AND bno = ? ");
 			break;

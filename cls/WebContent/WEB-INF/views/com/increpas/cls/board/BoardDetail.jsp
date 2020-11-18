@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/cls/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/cls/css/cls.css">
 <script type="text/javascript" src="/cls/js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/cls/js/"></script>
+<script type="text/javascript" src="/cls/js/board.js"></script>
 </head>
 <body>
 	<div class="w3-content mw750">
@@ -24,15 +24,17 @@
 					<div class="w3-col w3-input w3-border pdl20">${DATA.title}</div>
 				</div>
 			</div>
-			<div class="w3-col w3-margin-top">
+			<div class="w3-col w3-margin-top w3-margin-bottom">
 					<label class="w3-col m2 w3-right-align w3-label">File</label>
-					<div class="w3-col m9 pdl20 filefr">
+					<div class="w3-col m9 w3-center w3-margin-bottom pdl20 filefr">
 	<c:forEach var="fdata" items="${DATA.list}">
-						<div class="imgbox">
-							<a href="/cls/img/upload/${fdata.savename}">
-								<img src="/cls/img/upload/${fdata.savename}" class="imgsrc">
-							</a>
-							<span class="w3-text-grey">${fdata.oriname}</span>
+						<div class="imgboxfr w3-border">
+							<div class="w3-margin-bottom imgbox3">
+								<a href="/cls/img/upload/${fdata.savename}">
+									<img src="/cls/img/upload/${fdata.savename}" class="imgsrc2">
+								</a>
+								<span class="w3-col w3-margin-bottom w3-text-grey"><small>${fdata.oriname}</small></span>
+							</div>
 						</div>
 	</c:forEach>
 					</div>
