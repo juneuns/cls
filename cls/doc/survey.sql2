@@ -1,0 +1,126 @@
+SELECT
+    sbody, sqno, sqbody, sno, upno, decode(upno, null, 0, 1) lvl, nvl(upno, sqno) qgroup
+FROM
+    surveyinfo, surveyquest
+WHERE
+    sno = sino
+    AND sno = 1001
+order by
+    qgroup, lvl, sqno
+;
+START WITH
+    upno IS NULL
+CONNECT BY
+    PRIOR sqno = upno
+ORDER SIBLINGS BY
+    sqno
+;
+
+INSERT INTO
+    surveyanswer
+VALUES(
+    (SELECT NVL(MAX(sano) + 1, 100001) FROM surveyanswer),
+    (SELECT mno FROM member WHERE id = 'jinwoo' ),
+    10003, sysdate
+);
+
+
+INSERT INTO
+    surveyanswer
+VALUES(
+    (SELECT NVL(MAX(sano) + 1, 100001) FROM surveyanswer),
+    (SELECT mno FROM member WHERE id = 'jinwoo' ),
+    10006, sysdate
+);
+
+INSERT INTO
+    surveyanswer
+VALUES(
+    (SELECT NVL(MAX(sano) + 1, 100001) FROM surveyanswer),
+    (SELECT mno FROM member WHERE id = 'jinwoo' ),
+    10014, sysdate
+);
+
+rollback;
+
+
+-- 보기별 응답수 조회
+SELECT
+    sa_qno qno, count(*) cnt
+FROM
+    surveyinfo, surveyquest, surveyanswer
+WHERE
+    -- join
+    sno = sino
+    AND sqno = sa_qno
+    AND sno = 1001
+GROUP BY
+    sa_qno
+;
+
+
+SELECT
+    sbody, sqno, sqbody, sno, upno
+FROM
+    surveyinfo, surveyquest
+WHERE
+    sno = sino
+    AND sno = 1001
+START WITH
+    upno IS NULL
+CONNECT BY
+    PRIOR sqno = upno
+ORDER SIBLINGS BY
+    sqno
+;    
+
+----------------------------------------------------------------------
+SELECT
+    sbody, sqno qno, sqbody qbody, sno, upno, NVL(cnt, 0) cnt, NVL(((cnt / pcnt) * 100), 0) per
+FROM
+    surveyinfo,
+    surveyquest,
+    (
+        SELECT
+            sa_qno, count(*) cnt
+        FROM
+            surveyanswer
+        GROUP BY
+            sa_qno
+    ),
+    (
+        SELECT
+            COUNT(DISTINCT sa_mno) pcnt
+        FROM
+            surveyanswer
+    )
+WHERE
+    sno = sino
+    AND sqno = sa_qno(+)
+    AND sno = 1001
+START WITH
+    upno IS NULL
+CONNECT BY
+    PRIOR sqno = upno
+ORDER SIBLINGS BY
+    sqno
+;
+
+
+
+-- 설문 참여한 인원수 뽑기
+SELECT
+    COUNT(DISTINCT SA_MNO) MCNT
+FROM
+    SURVEYANSWER
+;
+
+
+-- 사원번호, 사원이름, 상사번호, 상사이름
+SELECT
+    e.empno eno, e.ename name, s.empno sno, s.ename sname
+FROM
+    emp e, emp s
+WHERE
+    e.mgr = s.empno(+)
+;   
