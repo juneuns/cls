@@ -6,6 +6,8 @@ public class BoardSQL {
 	public final int SEL_BOARD_TOTAL		= 1003;
 	public final int SEL_BOARD_DETAIL		= 1004;
 	
+	public final int EDIT_BOARD				= 2001;
+	
 	public final int ADD_BOARD				= 3001;
 	public final int ADD_FILE				= 3002;
 	
@@ -71,6 +73,14 @@ public class BoardSQL {
 			buff.append("	AND bmno = mno ");
 			buff.append("	AND bno = fbno(+) ");
 			buff.append("	AND bno = ? ");
+			break;
+		case EDIT_BOARD:
+			buff.append("UPDATE ");
+			buff.append("	board ");
+			buff.append("SET ");
+			buff.append("	### ");
+			buff.append("WHERE ");
+			buff.append("	bno = ? ");
 			break;
 		case ADD_BOARD:
 			buff.append("INSERT INTO ");
