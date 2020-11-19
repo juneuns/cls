@@ -16,6 +16,7 @@
 		<form class="w3-col w3-margin-top w3-round-large w3-card-4 w3-padding"
 			method="POST" action="/cls/board/boardEditProc.cls" encType="multipart/form-data"
 			id="efrm" name="efrm">
+			<input type="hidden" name="bno" value="${DATA.bno}">
 			<div class="w3-col w3-margin-top">
 				<label class="w3-col m2 w3-right-align w3-label">작성자</label>
 				<div class="w3-col m9 pdl20 w3-label">${DATA.id}</div>

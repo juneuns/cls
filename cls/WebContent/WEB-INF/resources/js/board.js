@@ -66,14 +66,14 @@ $(document).ready(function(){
 		if(stitle == tTitle && tBody == body){
 			return;
 		}
-		
 		if(stitle == tTitle){
 			$('#title').prop('readonly', true);
 		}
-		
 		if(tBody == body){
 			$('#body').prop('readonly', true);
 		}
+		
+		$('#efrm').submit();
 	});
 });
 

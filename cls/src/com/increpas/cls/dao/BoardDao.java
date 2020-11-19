@@ -187,7 +187,7 @@ public class BoardDao {
 				} else {
 					bVO.setBno(rs.getInt("bno"));
 					bVO.setTitle(rs.getString("title"));
-					bVO.setBody(rs.getString("body"));
+					bVO.setBody(rs.getString("body").replace("\r\n", "<br>"));
 					bVO.setId(rs.getString("id"));
 					bVO.setClick(rs.getInt("click"));
 					bVO.setWdate(rs.getDate("bdate"));
@@ -245,12 +245,12 @@ public class BoardDao {
 	// 게시글 수정 질의명령 전담 처리함수
 	public String procSql(String sql, BoardVO bVO) {
 		if(bVO.getTitle() != null && bVO.getBody() == null) {
-			sql = sql.replaceAll("###", "title = " + bVO.getTitle());
+			sql = sql.replaceAll("###", "title = '" + bVO.getTitle() + "'");
 		} else if(bVO.getTitle() == null && bVO.getBody() != null) {
-			sql = sql.replaceAll("###", "body = " + bVO.getBody());
+			sql = sql.replaceAll("###", "body = '" + bVO.getBody() + "'");
 		} else if(bVO.getTitle() != null && bVO.getBody() != null) {
-			sql = sql.replaceAll("###", "title = " + bVO.getTitle() + 
-											", body = " + bVO.getBody());
+			sql = sql.replaceAll("###", "title = '" + bVO.getTitle() + 
+											"', body = '" + bVO.getBody() + "'");
 		}
 		
 		return sql;
