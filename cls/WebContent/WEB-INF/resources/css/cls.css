@@ -142,9 +142,27 @@
 	width: 105px;
 	height: 115px;
 }
+
+.imgbox3 {
+	display: inline-block;
+	width: 125px;
+	height: 135px;
+}
+
+.imgboxfr {
+	display: inline-block;
+	width: 145px;
+	height: 195px;
+	padding: 10px;
+	overflow: hidden;
+}
 .imgsrc {
 	width: 100px;
 	height: 100px;
+}
+.imgsrc2 {
+	width: 125px;
+	height: auto;
 }
 
 .mt0 {

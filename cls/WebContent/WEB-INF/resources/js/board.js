@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	$('.brow').click(function(){
 		var sno = $(this).attr('id');
-		alert(sno);
+		$('#bno').val(sno);
+		$('#bfrm').attr('action', '/cls/board/boardDetail.cls');
+		$('#bfrm').submit();
 	});
 	
 	$('.pagebtn').click(function(){
@@ -47,6 +49,31 @@ $(document).ready(function(){
 		
 		// 이곳을 실행하는 경우는 모든 입력태그에(파일태그제외) 데이터가 입력된 경우..
 		$('#wfrm').submit();
+	});
+	
+	$('#ebtn').click(function(){
+		$('#frm').submit();
+	});
+	
+	// 문서가 완성이 되면 태그에 입력된 값을 기억해 놓는다.
+	var stitle = $('#title').val();
+	var body = $('#body').val();
+	
+	$('#edit').click(function(){
+		var tTitle = $('#title').val();
+		var tBody = $('#body').val();
+		
+		if(stitle == tTitle && tBody == body){
+			return;
+		}
+		if(stitle == tTitle){
+			$('#title').prop('readonly', true);
+		}
+		if(tBody == body){
+			$('#body').prop('readonly', true);
+		}
+		
+		$('#efrm').submit();
 	});
 });
 

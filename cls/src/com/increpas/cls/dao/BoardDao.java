@@ -187,7 +187,7 @@ public class BoardDao {
 				} else {
 					bVO.setBno(rs.getInt("bno"));
 					bVO.setTitle(rs.getString("title"));
-					bVO.setBody(rs.getString("body"));
+					bVO.setBody(rs.getString("body").replace("\r\n", "<br>"));
 					bVO.setId(rs.getString("id"));
 					bVO.setClick(rs.getInt("click"));
 					bVO.setWdate(rs.getDate("bdate"));
@@ -207,10 +207,52 @@ public class BoardDao {
 			bVO.setList(list);
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
 		}
 		
 		return bVO;
 	}
 	
+	// 게시판 수정 전담 처리함수
+	public int editBoard(BoardVO bVO) {
+		int cnt = 0 ;
+		// 커넥션 꺼내오고
+		con = db.getCon();
+		// 질의명령 가져오고
+		String sql = procSql(bSQL.getSQL(bSQL.EDIT_BOARD), bVO);
+		// 질의명령은 이미 완성이 됬으므로....
+		// pstmt 꺼내오고
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			// 글 번호 채워주고
+			pstmt.setInt(1, bVO.getBno());
+			// 질의명령 보내고 결과 받고
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		
+		return cnt;
+	}
 	
+	// 게시글 수정 질의명령 전담 처리함수
+	public String procSql(String sql, BoardVO bVO) {
+		if(bVO.getTitle() != null && bVO.getBody() == null) {
+			sql = sql.replaceAll("###", "title = '" + bVO.getTitle() + "'");
+		} else if(bVO.getTitle() == null && bVO.getBody() != null) {
+			sql = sql.replaceAll("###", "body = '" + bVO.getBody() + "'");
+		} else if(bVO.getTitle() != null && bVO.getBody() != null) {
+			sql = sql.replaceAll("###", "title = '" + bVO.getTitle() + 
+											"', body = '" + bVO.getBody() + "'");
+		}
+		
+		return sql;
+	}
 }

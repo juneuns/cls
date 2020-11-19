@@ -16,17 +16,14 @@ public class BoardDetail implements ClsMain {
 		int bno = 0;
 		try {
 			bno = Integer.parseInt(sno);
+			BoardDao bDao = new BoardDao();
+			BoardVO bVO = bDao.getDetail(bno);
+			
+			req.setAttribute("DATA", bVO);
 		} catch(Exception e) {
 			req.setAttribute("isRedirect", true);
 			view = "/cls/board/boardList.cls";
 		}
 		return view;
 	}
-	
-	public BoardVO getDetail(int bno) {
-		BoardVO bVO = new BoardVO();
-		
-		return bVO;
-	}
-
 }
