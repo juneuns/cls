@@ -65,7 +65,8 @@ public class BoardSQL {
 			break;
 		case SEL_BOARD_DETAIL:
 			buff.append("SELECT ");
-			buff.append("	bno, id, title, body, bclick click, bdate, fno, oriname, savename ");
+			buff.append("	bno, id, title, body, bclick click, bdate, ");
+			buff.append("	fno, oriname, savename ");
 			buff.append("FROM ");
 			buff.append("	board, member, fileinfo ");
 			buff.append("WHERE ");

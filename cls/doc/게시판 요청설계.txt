@@ -27,17 +27,17 @@
 컨트롤러 : com.increpas.cls.controller.board.BoardDetail
 뷰	  : /WEB-INF/views/com/increpas/cls/board/BoardDetail.jsp
 -----------------------------------------------------------------------------
-# 게시글 수정 처리 요청1 (비동기)
-요청내용 : /cls/board/boardEditProc.cls
-파라미터 : bno, title, body[, file ]
-컨트롤러 : com.increpas.cls.controller.board.BoardEditProc
-뷰	  : Ajax ] 
------------------------------------------------------------------------------
 # 게시글 수정 폼보기 요청 
 요청내용 : /cls/board/boardEdit.cls
 파라미터 : bno
 컨트롤러 : com.increpas.cls.controller.board.BoardEdit
 뷰	  : /WEB-INF/views/com/increpas/cls/board/BoardEdit.jsp
+-----------------------------------------------------------------------------
+# 게시글 수정 처리 요청1 (비동기)
+요청내용 : /cls/board/boardEditProc.cls
+파라미터 : bno, title, body[, file ]
+컨트롤러 : com.increpas.cls.controller.board.BoardEditProc
+뷰	  : Ajax ] 
 -----------------------------------------------------------------------------
 # 게시글 수정 처리 요청2 (동기)
 요청내용 : /cls/board/boardEditProc.cls

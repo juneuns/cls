@@ -11,8 +11,11 @@
 <script type="text/javascript" src="/cls/js/board.js"></script>
 </head>
 <body>
+	<form method="POST" action="/cls/board/boardEdit.cls" id="frm">
+		<input type="hidden" name="bno" value="${DATA.bno}">
+	</form>
 	<div class="w3-content mw750">
-		<h1 class="w3-indigo w3-center w3-round-large w3-card-4 w3-padding">파일게시판 글쓰기</h1>
+		<h1 class="w3-indigo w3-center w3-round-large w3-card-4 w3-padding">파일게시글 상세보기</h1>
 		<div class="w3-col w3-margin-top w3-round-large w3-card-4 w3-padding">
 			<div class="w3-col w3-margin-top">
 				<label class="w3-col m2 w3-right-align w3-label">작성자</label>
@@ -46,10 +49,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="w3-col w3-margin-top w3-margin-bottom w3-card-4">
-			<div class="w3-third w3-button w3-red w3-hover-deep-orange" id="cbtn">취 소</div>
-			<div class="w3-third w3-button w3-green w3-hover-lime" id="hbtn">Home</div>
-			<div class="w3-third w3-button w3-blue w3-hover-aqua" id="ebtn">수정</div>
+		<div class="w3-col w3-margin-top w3-margin-bottom">
+			<div class="w3-third w3-button w3-card-4 w3-red w3-hover-deep-orange" id="cbtn">취 소</div>
+	<c:if test="${SID eq DATA.id}">
+			<div class="w3-third w3-button w3-card-4 w3-blue w3-hover-aqua w3-right" id="ebtn">수정</div>
+	</c:if>
+			<div class="w3-third w3-button w3-card-4 w3-green w3-hover-lime w3-right" id="hbtn">Home</div>
 		</div>
 	</div>
 </body>
