@@ -83,7 +83,35 @@ https://github.com/increpas-cls2/TestProj
 		 	${data}
 		 </c:forEach>
 		 
-	3. 여러 타입의 데이터가 한쌍만 있는 경우
+	3. 여러 타입의 데이터가 한쌍만 있는 경우(VO)
+		
+		BoardVO bVO = new BoardVO();
+		bVO.setBno = 10010;
+		bVO.setTitle = "이것은 제목인가 본문인가?";
+		bVO.setBody = "메롱~~!";
+		
+		req.setAttribute("DATA", bVO);
+		
+		--> jsp
+		
+		${DATA.bno}
+		${DATA.title}
+		${DATA.body}
+		
+	4. 다른 종류의 데이터의 묶음이 여러개 있는 경우
+	
+		ArrayList<FileVO> list = new ArrayList<FileVO>();
+		<== list에 FileVO를 채워주고
+		
+		req.setAttribute("LIST", list);
+		
+		--> jsp
+		<c:forEach var="data" items="${LIST}">
+			${data.fno}
+			${data.oriname}
+			${data.savename}
+		</c:forEach>
+		
 	
 	
 			
