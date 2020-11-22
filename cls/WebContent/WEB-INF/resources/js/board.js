@@ -84,6 +84,7 @@ $(document).ready(function(){
 		return ino;
 	}
 	
+	/* 이미지 추가 함수 */
 	function addImg(i, n){
 		let timg = $(document.createElement('img'));
 		$(timg).attr('src', i);
