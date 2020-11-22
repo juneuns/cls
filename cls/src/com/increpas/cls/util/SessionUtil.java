@@ -8,6 +8,7 @@ public class SessionUtil {
 		if(sid == null) {
 			try {
 				resp.sendRedirect("/cls/member/login.cls");
+				req.setAttribute("isStop", true);
 			} catch(Exception e) {}
 		}
 		return sid;

@@ -105,9 +105,12 @@ public class ClsDispatch extends HttpServlet {
 		
 		req.setAttribute("isRedirect", false);
 		String view = cls.exec(req, resp);
+		
 		try {
 			bool = (Boolean) req.getAttribute("isRedirect");
-		} catch(Exception e) {}
+			Boolean bl = (Boolean) req.getAttribute("isStop");
+			if(bl) return;
+ 		} catch(Exception e) {}
 		
 		if(bool == null) {
 			// 이경우는 비동기 통신이므로 반환되는 문자열을 응답문서로 만들어준다.
