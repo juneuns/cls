@@ -16,36 +16,36 @@
 	</form>
 	<div class="w3-content mw750">
 		<h1 class="w3-indigo w3-center w3-round-large w3-card-4 w3-padding">파일게시글 상세보기</h1>
-		<div class="w3-col w3-margin-top w3-round-large w3-card-4 w3-padding">
-			<div class="w3-col w3-margin-top">
-				<label class="w3-col m2 w3-right-align w3-label">작성자</label>
-				<div class="w3-col m9 pdl20 w3-label">${DATA.id}</div>
+		<div class="w3-col pd20 w3-margin-top w3-round-large w3-card-4 w3-padding">
+			<div class="w3-col pd10 w3-margin-top">
+				<label class="w3-col m2 w3-right-align">작성자 : </label>
+				<div class="w3-col m9 pdl20"><span class="pdl20">${DATA.id}</span></div>
 			</div>
-			<div class="w3-col w3-margin-top">
-				<label class="w3-col m2 w3-right-align w3-label">Title</label>
+			<div class="w3-col pd10 w3-margin-top">
+				<label class="w3-col m2 w3-right-align">Title : </label>
 				<div class="w3-col m9 pdl20">
-					<div class="w3-col w3-input w3-border pdl20">${DATA.title}</div>
+					<div class="w3-col pdl20">${DATA.title}</div>
 				</div>
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">
-					<label class="w3-col m2 w3-right-align w3-label">File</label>
+					<label class="w3-col m2 w3-right-align">File : </label>
 					<div class="w3-col m9 w3-center w3-margin-bottom pdl20 filefr">
 	<c:forEach var="fdata" items="${DATA.list}">
-						<div class="imgboxfr w3-border">
+						<div class="imgboxfr w3-border w3-center ">
 							<div class="w3-margin-bottom imgbox3">
-								<a href="/cls/img/upload/${fdata.savename}">
-									<img src="/cls/img/upload/${fdata.savename}" class="imgsrc2">
+								<a href="/cls/img/upload/${fdata.savename}" class="inblock w3-display-container imgfr2">
+									<img src="/cls/img/upload/${fdata.savename}" class="w3-display-middle imgsrc2" onLoad="resize(this)">
 								</a>
-								<span class="w3-col w3-margin-bottom w3-text-grey"><small>${fdata.oriname}</small></span>
+								<span class="inblock w3-margin-bottom w3-text-grey imgname"><small><b>${fdata.oriname.substring(0, 8)}...</b></small></span>
 							</div>
 						</div>
 	</c:forEach>
 					</div>
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">
-				<label class="w3-col m2 w3-right-align w3-label">Message</label>
+				<label class="w3-col m2 w3-right-align w3-label">Message : </label>
 				<div class="w3-col m9 pdl20">
-					<div class="w3-col h70 w3-border">${DATA.body}</div>
+					<div class="w3-col h70 pdl20">${DATA.body}</div>
 				</div>
 			</div>
 		</div>

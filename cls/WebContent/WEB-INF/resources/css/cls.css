@@ -112,6 +112,10 @@
 	padding: 10px;
 }
 
+.pd20 {
+	padding: 20px;
+}
+
 .pdh1 {
 	padding: 0px 1px;
 }
@@ -146,23 +150,39 @@
 .imgbox3 {
 	display: inline-block;
 	width: 125px;
-	height: 135px;
+	height: 155px;
 }
 
 .imgboxfr {
 	display: inline-block;
 	width: 145px;
-	height: 195px;
+	height: 170px;
 	padding: 10px;
+}
+
+.imgfr2 {
+	width: 125px;
+	height: 125px;
 	overflow: hidden;
 }
 .imgsrc {
 	width: 100px;
 	height: 100px;
 }
-.imgsrc2 {
+
+.imgsrc2w {
 	width: 125px;
 	height: auto;
+}
+
+.imgsrc2h {
+	height: 125px;
+	width: auto;
+}
+
+.imgname {
+	height: 10px;
+	width: 100%;
 }
 
 .mt0 {

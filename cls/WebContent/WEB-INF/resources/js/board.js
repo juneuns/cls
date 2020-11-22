@@ -1,3 +1,8 @@
+	var resize = function(el){
+			let w = el.naturalWidth;
+			let h = el.naturalHeight;
+			$(el).addClass((w >= h) ? 'imgsrc2w' : 'imgsrc2h');
+	};
 $(document).ready(function(){
 	$('.brow').click(function(){
 		var sno = $(this).attr('id');
@@ -83,6 +88,8 @@ $(document).ready(function(){
 		ino += 1;
 		return ino;
 	}
+	
+	
 	
 	/* 이미지 추가 함수 */
 	function addImg(i, n){
