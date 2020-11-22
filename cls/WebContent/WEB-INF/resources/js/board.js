@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
 	$('.brow').click(function(){
 		var sno = $(this).attr('id');
@@ -92,7 +90,6 @@ $(document).ready(function(){
 		$(timg).attr('id', 'addImg' + n);
 		$(timg).attr('class', 'inblock w3-display-middle');
 		
-		
 		let fr = $(document.createElement('div'));
 		$(fr).attr('class', 'addFr inblock pd10 margin-h5 mb5 w3-card-2 w3-border w3-display-container');
 		$(fr).attr('id', 'addFr' + n);
@@ -140,18 +137,3 @@ $(document).ready(function(){
 	}
 	addTag();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
