@@ -288,3 +288,28 @@ span#wbtn {
 .dfr {
 	height: 30px;
 }
+
+.addFr {
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+}
+
+.addImgW {
+	width: 60px;
+	height: auto;
+}
+
+.addImgH {
+	height: 60px;
+	width: auto;
+}
+
+.oriImg {
+	width: 50px;
+	height: auto;
+}
+.margin-h5 {
+	margin-left: 5px;
+	margin-right: 5px;
+}

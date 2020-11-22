@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/cls/js/board.js"></script>
 
 <script type="text/javascript">
-	alert('${LIST.get(0).cnt}');
+/* 	alert('${LIST.get(0).cnt}'); */
 </script>
 </head>
 <body>
@@ -55,6 +55,7 @@
 				<div class="w3-col m3 w3-light-grey w3-border-right">작성일</div>
 				<div class="w3-col m1 w3-light-grey">조회수</div>
 			</div>
+<c:if test="${not empty LIST}">
 			<div class="w3-col w3-border-left w3-border-right w3-margin-bottom">
 	<c:forEach var="data" items="${LIST}">
 				<div class="w3-col w3-center w3-hover-lime w3-border-bottom brow" id="${data.bno}">
@@ -71,6 +72,7 @@
 				</div>
 	</c:forEach>
 			</div>
+</c:if>
 		</div>
 		
 		<!-- 페이징 버튼 -->

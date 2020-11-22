@@ -88,7 +88,7 @@ public class BoardWriteProc implements ClsMain {
 		// 아이디 꺼내오고
 		String sid = SessionUtil.procSession(req, resp);
 		
-		String path = req.getSession().getServletContext().getRealPath("\\WEB-INF\\resources\\img\\upload");
+		String path = req.getSession().getServletContext().getRealPath("WEB-INF/resources/img/upload");
 		try {
 			MultipartRequest multi = new MultipartRequest(req, path, 1024*1024*10, "UTF-8",
 											new DefaultFileRenamePolicy());
@@ -116,10 +116,10 @@ public class BoardWriteProc implements ClsMain {
 			// 파일 정보가 필요하므로 만들어 준다.
 			
 			// 파일 정보 꺼내오고
-			ArrayList<FileVO> list = null;
+			//ArrayList<FileVO> list = null;
 			
 			try{
-				list = getFileInfo(sid, multi);
+				ArrayList<FileVO> list = getFileInfo(sid, multi);
 				cnt = bDao.addFile(list);
 			} catch(Exception e) {
 				// 보여줄 뷰 부르고....
@@ -168,10 +168,15 @@ public class BoardWriteProc implements ClsMain {
 		
 		Enumeration en = multi.getFileNames();
 		
+		int idx = 0;
 		while(en.hasMoreElements()) {
 			String name = (String) en.nextElement();
 			
 			String oriname = multi.getOriginalFileName(name);
+			
+			// 아무것도 선택 안된 파일태그는 건너뛴다.
+			if(oriname == null) continue;
+			
 			String savename = multi.getFilesystemName(name);
 			File file = multi.getFile(name);
 			long len = file.length();

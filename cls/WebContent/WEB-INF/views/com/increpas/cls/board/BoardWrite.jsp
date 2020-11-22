@@ -29,9 +29,12 @@
 			</div>
 			<div class="w3-col w3-margin-top">
 					<label class="w3-col m2 w3-right-align w3-label">File</label>
-					<div class="w3-col m9 pdl20 filefr">
-						<input type="file" name="file1" 
-								class="w3-col w3-input w3-border pdl10 upfile" placeholder="파일을 선택하세요!">
+					<div class="w3-col m9 pdl20">
+						<div class="w3-col w3-margin-bottom" id="filefr">
+						<!-- 	<input type="file" name="file1" id="file1"
+									class="w3-col w3-input w3-border pdl10 upfile" placeholder="파일을 선택하세요!"> -->
+						</div>
+						<div class="w3-col w3-padding w3-center" id="fileimg"></div>
 					</div>
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">
@@ -41,9 +44,6 @@
 							class="w3-col w3-input w3-border" placeholder="제목을 입력하세요!" rows="10" style="resize: none;"></textarea>
 				</div>
 			</div>
-			<a href="/cls/img/upload/B6367089342_l7.jpg">
-				<img src="/cls/img/upload/B6367089342_l7.jpg" width="200px" height="auto">
-			</a>
 		</form>
 		<div class="w3-col w3-margin-top w3-margin-bottom w3-card-4">
 			<div class="w3-third w3-button w3-red w3-hover-deep-orange" id="cbtn">취 소</div>
