@@ -28,19 +28,19 @@
 				</div>
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">
-					<label class="w3-col m2 w3-right-align">File : </label>
-					<div class="w3-col m9 w3-center w3-margin-bottom pdl20 filefr">
+				<label class="w3-col m2 w3-right-align">File : </label>
+				<div class="w3-col m9 w3-center w3-margin-bottom pdl20 filefr">
 	<c:forEach var="fdata" items="${DATA.list}">
-						<div class="imgboxfr w3-border w3-center ">
-							<div class="w3-margin-bottom imgbox3">
-								<a href="/cls/img/upload/${fdata.savename}" class="inblock w3-display-container imgfr2">
-									<img src="/cls/img/upload/${fdata.savename}" class="w3-display-middle imgsrc2" onLoad="resize(this)">
-								</a>
-								<span class="inblock w3-margin-bottom w3-text-grey imgname"><small><b>${fdata.oriname.substring(0, 8)}...</b></small></span>
-							</div>
+					<div class="imgboxfr w3-border w3-center ">
+						<div class="w3-margin-bottom imgbox3">
+							<a href="/cls/img/upload/${fdata.savename}" class="inblock w3-display-container imgfr2">
+								<img src="/cls/img/upload/${fdata.savename}" class="w3-display-middle imgsrc2" onLoad="resize(this)">
+							</a>
+							<span class="inblock w3-margin-bottom w3-text-grey imgname"><small><b>${fdata.oriname.substring(0, 8)}...</b></small></span>
 						</div>
-	</c:forEach>
 					</div>
+	</c:forEach>
+				</div>
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">
 				<label class="w3-col m2 w3-right-align w3-label">Message : </label>
