@@ -30,11 +30,12 @@
 			<div class="w3-col w3-margin-top">
 					<label class="w3-col m2 w3-right-align w3-label">File</label>
 					<div class="w3-col m9 pdl20">
-						<div class="w3-col w3-margin-bottom" id="filefr">
-						<!-- 	<input type="file" name="file1" id="file1"
-									class="w3-col w3-input w3-border pdl10 upfile" placeholder="파일을 선택하세요!"> -->
-						</div>
-						<div class="w3-col w3-padding w3-center" id="fileimg"></div>
+						<div class="w3-col w3-margin-bottom" id="filefr"><!-- 
+							자바스크립트에서 태그를 추가...
+					 --></div>
+						<div class="w3-col w3-padding w3-center" id="fileimg"><!-- 
+							이미지 파일이 추가되면 이 부분에 이미지를 보여주기로 한다.
+					 --></div>
 					</div>
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">

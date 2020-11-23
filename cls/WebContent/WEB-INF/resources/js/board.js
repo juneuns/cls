@@ -1,8 +1,8 @@
-	var resize = function(el){
-			let w = el.naturalWidth;
-			let h = el.naturalHeight;
-			$(el).addClass((w >= h) ? 'imgsrc2w' : 'imgsrc2h');
-	};
+var resize = function(el){
+	let w = el.naturalWidth;
+	let h = el.naturalHeight;
+	$(el).addClass((w >= h) ? 'imgsrc2w' : 'imgsrc2h');
+};
 $(document).ready(function(){
 	$('.brow').click(function(){
 		var sno = $(this).attr('id');
@@ -54,6 +54,7 @@ $(document).ready(function(){
 		
 		// 파일 선택이 안된 태그 비활성 처리
 		$('.upfile').last().prop('disabled', true);
+		
 		// 이곳을 실행하는 경우는 모든 입력태그에(파일태그제외) 데이터가 입력된 경우..
 		$('#wfrm').submit();
 	});
@@ -89,14 +90,12 @@ $(document).ready(function(){
 		return ino;
 	}
 	
-	
-	
 	/* 이미지 추가 함수 */
 	function addImg(i, n){
 		let timg = $(document.createElement('img'));
 		$(timg).attr('src', i);
 		$(timg).attr('id', 'addImg' + n);
-		$(timg).attr('class', 'inblock w3-display-middle');
+		$(timg).attr('class', 'inblock w3-display-middle addImg');
 		
 		let fr = $(document.createElement('div'));
 		$(fr).attr('class', 'addFr inblock pd10 margin-h5 mb5 w3-card-2 w3-border w3-display-container');
@@ -104,6 +103,7 @@ $(document).ready(function(){
 		$(fr).append(timg);
 		
 		$('#fileimg').append(fr);
+		setCno(getCno() + 1);
 		
 		let cls = '#addImg' + n;
 		
@@ -130,6 +130,7 @@ $(document).ready(function(){
 				$(tag).remove();
 				var tno = $(tag).attr('id').substring(4);
 				$('#addFr' + tno).remove();
+				
 			} else {
 				let tfile = URL.createObjectURL(e.target.files[0]);
 				

@@ -30,6 +30,7 @@ public class BoardEdit implements ClsMain {
 		// 글 번호에 해당하는 데이터를 데이터베이스에서 가져오고..
 		BoardDao bDao = new BoardDao();
 		BoardVO bVO = bDao.getDetail(bno);
+		bVO.setBody(bVO.getBody().replaceAll("<br>", "\n"));
 		// 뷰에 데이터 심고
 		req.setAttribute("DATA", bVO);
 		

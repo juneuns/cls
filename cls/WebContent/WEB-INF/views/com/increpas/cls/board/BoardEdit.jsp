@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="/cls/css/cls.css">
 <script type="text/javascript" src="/cls/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/cls/js/board.js"></script>
+<script type="text/javascript" src="/cls/js/boardEdit.js"></script>
 </head>
 <body>
 	<div class="w3-content mw750">
@@ -30,23 +31,27 @@
 			</div>
 			<div class="w3-col w3-margin-top">
 					<label class="w3-col m2 w3-right-align w3-label">File</label>
-					<div class="w3-col m9 pdl20 filefr">
-						<input type="file" name="file1" 
-								class="w3-col w3-input w3-border pdl10 upfile" placeholder="파일을 선택하세요!">
+					<div class="w3-col m9 pdl20">
 						<div class="w3-col w3-center">
 	<c:forEach var="fdata" items="${DATA.list}">
-							<div class="imgboxfr w3-margin-top w3-margin-bottom w3-border" id="fno">
-								<div class="w3-margin-bottom imgbox3">
+							<div class="imgboxfr w3-margin-top w3-border w3-card-2" id="fno">
+								<div class="w3-col">
 									<a href="/cls/img/upload/${fdata.savename}">
-										<img src="/cls/img/upload/${fdata.savename}" class="imgsrc2">
+										<img src="/cls/img/upload/${fdata.savename}" class="imgsrc2" onLoad="resize(this)">
 									</a>
-									<span class="w3-col w3-margin-bottom w3-text-grey">
+									<span class="w3-col w3-text-grey">
 										<small>${fdata.oriname}</small>
 									</span>
 								</div>
 							</div>
 	</c:forEach>
 						</div>
+						<div class="w3-col">
+							<div class="w3-col w3-margin-top" id="filefr"><!-- 
+								자바스크립트에서 태그를 추가...
+						 --></div>
+						</div>
+						<div class="w3-col w3-center" id="fileimg" style="display: none;"><!-- 이미지 파일이 추가되면 이 부분에 이미지를 보여주기로 한다. --></div>
 					</div>
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">
@@ -63,5 +68,27 @@
 			<div class="w3-third w3-button w3-blue w3-hover-aqua" id="edit">edit</div>
 		</div>
 	</div>
+<script type="text/javascript">
+	
+$(function(){
+	
+/* 	$('.addImg').on('load', function(){ */
+		$('.upfile').on('change', function(){
+			let cnt = document.getElementsByClassName('upfile').length;
+			alert(cnt);
+			if(cnt == 1){
+				$('#fileimg').slideUp(500, function(){
+					$('#fileimg').removeClass('mt10 pdt10 w3-border w3-border-blue w3-round-large');
+				});
+			} else if(cnt == 2) {
+				$('#fileimg').addClass('mt10 pdt10 w3-border w3-border-blue w3-round-large');
+				$('#fileimg').stop().slideDown(500);
+			}
+		});
+		
+/* 	}); */
+	
+});
+</script>
 </body>
 </html>

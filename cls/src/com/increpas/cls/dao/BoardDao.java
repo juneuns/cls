@@ -187,7 +187,7 @@ public class BoardDao {
 				} else {
 					bVO.setBno(rs.getInt("bno"));
 					bVO.setTitle(rs.getString("title"));
-					bVO.setBody(rs.getString("body").replace("\r\n", "<br>"));
+					bVO.setBody(rs.getString("body").replaceAll("\r\n", "<br>"));
 					bVO.setId(rs.getString("id"));
 					bVO.setClick(rs.getInt("click"));
 					bVO.setWdate(rs.getDate("bdate"));
