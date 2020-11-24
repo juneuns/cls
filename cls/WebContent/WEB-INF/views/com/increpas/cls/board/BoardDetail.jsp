@@ -34,7 +34,7 @@
 					<div class="imgboxfr w3-border w3-center ">
 						<div class="w3-margin-bottom imgbox3">
 							<a href="/cls/img/upload/${fdata.savename}" class="inblock w3-display-container imgfr2">
-								<img src="/cls/img/upload/${fdata.savename}" class="w3-display-middle imgsrc2" onLoad="resize(this)">
+								<img src="/cls/img/upload/${fdata.savename}" class="w3-display-middle imgsrc2" onLoad="resize(this, 'addImgW', 'addImgH')">
 							</a>
 							<span class="inblock w3-margin-bottom w3-text-grey imgname"><small><b>${fdata.oriname.substring(0, 8)}...</b></small></span>
 						</div>

@@ -53,3 +53,9 @@
 컨트롤러 : com.increpas.cls.controller.board.BoardRedirect
 뷰	  : /WEB-INF/views/com/increpas/cls/board/redirect.jsp
 -----------------------------------------------------------------------------
+# 게시글 이미지 삭제 요청 
+요청내용 : /cls/board/boardDelImg.cls
+파라미터 : fno
+컨트롤러 : com.increpas.cls.controller.board.BoardDelImg
+뷰	  : ajax ] json
+-----------------------------------------------------------------------------

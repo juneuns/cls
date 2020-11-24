@@ -1,7 +1,7 @@
-var resize = function(el){
+var resize = function(el, a, b){
 	let w = el.naturalWidth;
 	let h = el.naturalHeight;
-	$(el).addClass((w >= h) ? 'imgsrc2w' : 'imgsrc2h');
+	$(el).addClass((w >= h) ? a : b);
 };
 $(document).ready(function(){
 	$('.brow').click(function(){

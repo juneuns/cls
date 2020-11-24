@@ -255,4 +255,24 @@ public class BoardDao {
 		
 		return sql;
 	}
+	
+	// 게시글 첨부파일 삭제 요청 처리
+	public int delImg(int fno) {
+		int cnt = 0 ; 
+		
+		con = db.getCon();
+		String sql = bSQL.getSQL(bSQL.UPDATE_IMAGE);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setInt(1, fno);
+			
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
 }
